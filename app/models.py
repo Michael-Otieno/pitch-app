@@ -9,6 +9,9 @@ class User(UserMixin, db.Model):
     email = db.Column(db.String(255), index=True, unique=True)
     password_hash = db.Column(db.String(255))
     posts = db.relationship('Pitch', backref='author', lazy='dynamic')
+    about_me = db.Column(db.String(255))
+    last_seen = db.Column(db.DateTime, default=datetime.utcnow)
+
 
     def __repr__(self):
         return '<User {}>'.format(self.username)
