@@ -1,28 +1,19 @@
 from flask import render_template
 from . import main
+from flask_login import login_required
 
 
 #Views
 @main.route('/')
 
 def index():
-    title = 'Home'
-    posts=[
-        {
-            'author':{'username':'John'},
-            'body':'Beatiful day At home'
-        },
-        {
-            'author':{'username':'Susan'},
-            'body':'The movie was cool'
-        }
-    ]
- 
-    return render_template('index.html',title=title,posts=posts)
+   
+    return render_template('index.html')
 
 
 
-@main.route('/register', methods=['GET', 'POST'])
-def register():
+@main.route('/user/<uname>/update', methods=['GET', 'POST'])
+@login_required
+def update_profile(uname):
     
-    return render_template('register.html', title='Register')
+    return render_template('profile/update.html')
