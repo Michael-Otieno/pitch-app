@@ -1,8 +1,6 @@
 {%extends 'base.html'%}
 {%block content%}
-    <h1>Hi, {{ current_user.username }}!</h1>
-    {% for post in posts %}
-    <div><p>{{ post.author.username }} says: <b>{{ post.body }}</b></p></div>
-    {% endfor %}
-
+    <h1>Welcome to pitch world</h1>
+    <p>A place to share your pitch and be voted.</p>
+    <p>Please log in to share your pitch.</p>
 {% endblock %}
