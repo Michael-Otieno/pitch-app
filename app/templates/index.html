@@ -1,6 +1,43 @@
-{%extends 'base.html'%}
+{% extends 'base.html' %}
+{% import 'macros.html' as macro %}
+<!-- Styles block -->
+
+{%block styles%}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{%endblock%}
+<!-- Content block -->
 {%block content%}
-    <h1>Welcome to pitch world</h1>
-    <p>A place to share your pitch and be voted.</p>
-    <p>Please log in to share your pitch.</p>
-{% endblock %}
+<div class="jumbotron text-center" style="background-color: #3d7aaf; color: #fff; padding: 100px 25px;">
+    <h1>Pitch World</h1>
+</div>
+<div class="container" style="padding-bottom: 20px;">
+    <a href="" class="btn btn-success">Create pitch</a>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="well well-lg">
+                <h3>Interview Pitches</h3>
+                <p>These are short pitches that will help you ace your interview in just a minute.</p>
+                <a href="" class="btn btn-primary -center">View</a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="well well-lg">
+                <h3>Product Pitches</h3>
+                <p>These are short pitches that will help you ace your product presentation in just a minute.</p>
+                <a href="" class="btn btn-primary -center">View</a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="well well-lg">
+                <h3>Promotion Pitches</h3>
+                <p>These are short pitches that will help you ace your promotion presentation in just a minute.</p>
+                <a href="" class="btn btn-primary -center">View</a>
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}

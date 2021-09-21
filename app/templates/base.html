@@ -1,22 +1,10 @@
-<!doctype html>
-<html>
-    <head>
-      {% if title %}
-      <title>{{ title }} - Pitch App</title>
-      {% else %}
-      <title>Welcome to Pitch App</title>
-      {% endif %}
-    </head>
-    <body>
-        <div>
-            <span>Pitch App</span>
-            <a href="{{ index }}">Home</a>
-            <a href="{{ login }}">Login</a>
-            <a href="{{ use }}">Profile</a>
-            <a href="{{ logout }}">Logout</a>
-        </div>
-        <hr>
-       
-        {% block content %}{% endblock %}
-    </body>
-</html>
+{% extends 'bootstrap/base.html'%}
+
+<!-- Navbar block  -->
+{% block navbar %}
+    {% include 'navbar.html' %}
+{% endblock %}
+
+{%block styles %}
+  {{super()}}
+{% endblock %}
