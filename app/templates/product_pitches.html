@@ -2,12 +2,8 @@
 {% import 'macros.html' as macro %}
 
 {%block content%}
-<div class="jumbotron text-center" style="background-color: #a7bccf; color: #fff; padding: 100px 25px;">
-    <h1>Product Pitches</h1>
-</div>
-<div class="container" style="background-color: #dadee2; color: #fff; padding: 100px 25px;">
-    <h1>Product Pitches</h1>
-    <hr>
+<div class="container-fluid text-center">
+    <h1 class="text-decoration-underline">Educational Pitches</h1>
     <div class="row">
         {{macro.displayPitches(pitches)}}
     </div>
