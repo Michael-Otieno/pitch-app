@@ -4,25 +4,21 @@ from ..models import User,Pitch,Comment
 from .. import db,photos
 from .forms import UpdateProfile,PitchForm,CommentForm
 from flask_login import login_required,current_user
-import datetime
 
 # Views
 @main.route('/')
 def index():
 
-    '''
-    View root page function that returns the index page and its data
-    '''
 
-    title = 'Home - Welcome to Perfect Pitch'
+    title = 'Welcome to Perfect World'
 
     # Getting reviews by category
-    interview_piches = Pitch.get_pitches('interview')
-    product_piches = Pitch.get_pitches('product')
-    promotion_pitches = Pitch.get_pitches('promotion')
+    social_piches = Pitch.get_pitches('social')
+    educational_piches = Pitch.get_pitches('educational')
+    political_pitches = Pitch.get_pitches('political')
 
 
-    return render_template('index.html',title = title, interview = interview_piches, product = product_piches, promotion = promotion_pitches)
+    return render_template('index.html',title = title, social =social_piches, educational=educational_piches, political=political_pitches)
 
 @main.route('/user/<uname>')
 def profile(uname):
@@ -84,26 +80,26 @@ def new_pitch():
     title = 'New pitch'
     return render_template('new_pitch.html',title = title,pitch_form=pitch_form )
 
-@main.route('/pitches/interview_pitches')
-def interview_pitches():
+@main.route('/pitches/social_pitches')
+def social_pitches():
 
-    pitches = Pitch.get_pitches('interview')
+    pitches = Pitch.get_pitches('social')
 
-    return render_template("interview_pitches.html", pitches = pitches)
+    return render_template("social_pitches.html", pitches = pitches)
 
-@main.route('/pitches/product_pitches')
-def product_pitches():
+@main.route('/pitches/educational_pitches')
+def educational_pitches():
 
-    pitches = Pitch.get_pitches('product')
+    pitches = Pitch.get_pitches('educational')
 
-    return render_template("product_pitches.html", pitches = pitches)
+    return render_template("educational_pitches.html", pitches = pitches)
 
-@main.route('/pitches/promotion_pitches')
-def promotion_pitches():
+@main.route('/pitches/political_pitches')
+def political_pitches():
 
-    pitches = Pitch.get_pitches('promotion')
+    pitches = Pitch.get_pitches('political')
 
-    return render_template("promotion_pitches.html", pitches = pitches)
+    return render_template("political_pitches.html", pitches = pitches)
 
 @main.route('/pitch/<int:id>', methods = ['GET','POST'])
 def pitch(id):

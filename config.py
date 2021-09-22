@@ -16,30 +16,15 @@ class Config:
     MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
 
 class ProdConfig(Config):
-    '''
-    Production  configuration child class
-
-    Args:
-        Config: The parent configuration class with General configuration settings
-    '''
+   
     SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
 
 class TestConfig(Config):
-    '''
-    Testing configuration child class
-
-    Args:
-        Config: The parent configuration class with General configuration settings
-    '''
+   
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://pitch:1234@localhost/pitchproject'
 
 class DevConfig(Config):
-    '''
-    Development  configuration child class
-
-    Args:
-        Config: The parent configuration class with General configuration settings
-    '''
+   
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://pitch:1234@localhost/pitchproject'
     DEBUG = True
 
