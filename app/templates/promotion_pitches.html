@@ -2,14 +2,16 @@
 {% import 'macros.html' as macro %}
 
 {%block content%}
-<div class="jumbotron text-center" style="background-color: #3d7aaf; color: #fff; padding: 100px 25px;">
+<div style="background-color: #deebff;">
+<div class="jumbotron text-center">
     <h1>Promotion Pitches</h1>
 </div>
-<div class="container">
+<div class="container-fluid">
     <h1>Promotion Pitches</h1>
     <hr>
-    <div class="row">
+    <div>
         {{macro.displayPitches(pitches)}}
     </div>
+</div>
 </div>
 {%endblock%}
